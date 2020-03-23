@@ -1,7 +1,5 @@
 " 设置显示行号
 " set number
-" 设置选中行高亮(加横线)
-" set cursorline
 " 设置显示命令
 set showcmd
 " 设置编码模式
@@ -25,8 +23,6 @@ set autoread
 set ignorecase
 set incsearch
 set hlsearch
-" 显示匹配的括号
-" set showmatch
 set title
 set laststatus=2
 set scrolloff=5
@@ -35,16 +31,13 @@ set confirm
 " 设置标尺
 " set ruler
 set matchpairs+=<:> 
-" 复制格式
-set paste
 
 let mapleader=" "
 
-nnoremap <leader>n :nohlsearch<cr>
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
 nnoremap tt :NERDTree<cr>
 nnoremap q :q<cr>
-nnoremap Q :wq<cr>
-nnoremap S :w<cr>
 nnoremap s :w<cr>
 nnoremap N :set nu!<cr>
 
@@ -58,7 +51,7 @@ Plug 'bling/vim-bufferline'
 Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'connorholyday/vim-snazzy'
-" Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
