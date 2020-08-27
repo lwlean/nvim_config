@@ -5,9 +5,11 @@ set showcmd
 " 设置编码模式
 set encoding=utf-8
 " 设置保持缩进
-set autoindent
+" set autoindent
+set ts=2
+set sw=2
 " 设置tab空格数
-set tabstop=2
+" set tabstop=2
 " 设置不保存buffer
 set hidden
 " 语法是否高亮
@@ -34,6 +36,7 @@ set matchpairs+=<:>
 
 let mapleader=" "
 
+nnoremap vv :badd $MYVIMRC<cr> :bn<cr>
 nnoremap <leader>n :bn<cr>
 nnoremap <leader>p :bp<cr>
 nnoremap tt :NERDTree<cr>
