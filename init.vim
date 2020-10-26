@@ -40,6 +40,7 @@ nnoremap vv :badd $MYVIMRC<cr> :bn<cr>
 nnoremap <leader>n :bn<cr>
 nnoremap <leader>p :bp<cr>
 nnoremap tt :NERDTree<cr>
+nnoremap z q
 nnoremap q :q<cr>
 nnoremap s :w<cr>
 nnoremap N :set nu!<cr>
