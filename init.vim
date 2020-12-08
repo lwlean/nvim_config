@@ -1,4 +1,4 @@
-" 设置显示行号
+" 设置显示行
 " set number
 " 设置显示命令
 set showcmd
@@ -57,12 +57,18 @@ Plug 'godlygeek/tabular'
 Plug 'connorholyday/vim-snazzy'
 Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'luochen1990/rainbow'
+Plug 'alvan/vim-closetag'
+Plug 'yianwillis/vimcdoc'
 call plug#end()
 
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:python_host_prog='/usr/bin/python'
 let g:python3_host_prog='/usr/bin/python3'
+let g:vim_markdown_folding_disabled = 1
 
 " 主题透明
 let g:SnazzyTransparent = 1
@@ -71,7 +77,7 @@ let g:SnazzyTransparent = 1
 " " ===
 " " fix the most annoying bug that coc has
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore']
+let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore', 'coc-snippets', 'coc-vetur', 'coc-pairs']
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -92,5 +98,7 @@ nnoremap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent> gr <Plug>(coc-references)
 nnoremap <leader>rn <Plug>(coc-rename)
 
+nnoremap <C-j> :m .+1<cr>==
+nnoremap <C-k> :m .-2<cr>==
 " mytest
 " inoremap ssig -- <cr>Steve Losh<cr>steve@steve.com<cr>
