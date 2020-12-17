@@ -33,7 +33,8 @@ set confirm
 " 设置标尺
 " set ruler
 set matchpairs+=<:> 
-
+highlight Pmenu ctermbg=251 guibg=white guifg=black 
+" Pmenu          xxx ctermfg=0 ctermbg=13 gui=bold guifg=black guibg=white
 let mapleader=" "
 
 nnoremap vv :badd $MYVIMRC<cr> :bn<cr>
