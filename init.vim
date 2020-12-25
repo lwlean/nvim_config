@@ -40,12 +40,14 @@ let mapleader=" "
 nnoremap vv :badd $MYVIMRC<cr> :bn<cr>
 nnoremap <leader>n :bn<cr>
 nnoremap <leader>p :bp<cr>
+nnoremap <leader>s ^
+nnoremap <leader>e $
+nnoremap <leader>d :bd<cr>
 nnoremap tt :NERDTree<cr>
 nnoremap z q
 nnoremap q :q<cr>
 nnoremap s :w<cr>
 nnoremap N :set nu!<cr>
-
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
@@ -63,6 +65,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
 Plug 'alvan/vim-closetag'
 Plug 'yianwillis/vimcdoc'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 let g:airline#extensions#tabline#left_sep = ''
@@ -78,7 +81,7 @@ let g:SnazzyTransparent = 1
 " " ===
 " " fix the most annoying bug that coc has
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore', 'coc-snippets', 'coc-vetur', 'coc-pairs']
+let g:coc_global_extensions = ['coc-marketplace', 'coc-python', 'coc-vimlsp', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore', 'coc-snippets', 'coc-vetur', 'coc-pairs']
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -101,5 +104,20 @@ nnoremap <leader>rn <Plug>(coc-rename)
 
 nnoremap <C-j> :m .+1<cr>==
 nnoremap <C-k> :m .-2<cr>==
+
+
+imap <C-l> <Plug>(coc-snippets-expand)
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 " mytest
 " inoremap ssig -- <cr>Steve Losh<cr>steve@steve.com<cr>
