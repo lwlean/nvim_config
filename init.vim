@@ -16,15 +16,15 @@ set hidden
 syntax on
 syntax enable
 set t_Co=256
-" colorscheme snazzy 
 " 历史保留行数
 set history=400
+" colorscheme snazzy 
 " 自动重新读入
 set autoread
 " 设置自动忽略大小写
 set ignorecase
 set incsearch
-set hlsearch
+set nohlsearch
 set title
 set laststatus=2
 set scrolloff=5
@@ -32,6 +32,8 @@ set scrolloff=5
 set confirm
 " 设置标尺
 " set ruler
+set cursorline
+set cursorcolumn
 set matchpairs+=<:> 
 highlight Pmenu ctermbg=251 guibg=white guifg=black 
 " Pmenu          xxx ctermfg=0 ctermbg=13 gui=bold guifg=black guibg=white
@@ -48,14 +50,17 @@ nnoremap z q
 nnoremap q :q<cr>
 nnoremap s :w<cr>
 nnoremap N :set nu!<cr>
+nnoremap L :set cursorline! cursorcolumn!<cr>
+nnoremap <C-h> :History<cr>
+nnoremap <C-p> :Files<cr>
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'liuchengxu/eleline.vim'
 Plug 'bling/vim-bufferline'
 Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'godlygeek/tabular'
 Plug 'connorholyday/vim-snazzy'
 Plug 'plasticboy/vim-markdown'
@@ -121,3 +126,13 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 " mytest
 " inoremap ssig -- <cr>Steve Losh<cr>steve@steve.com<cr>
+
+" 自定义函数
+let g:is_win_flag = 0 
+function Check_is_win()
+let isWin = has('win32') || has('win64') || has('win95') || has('win16')
+g:is_win_flag = isWin ? 1 : 0
+endfunction
+
+" buf
+
