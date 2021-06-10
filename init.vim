@@ -1,5 +1,5 @@
 " 设置显示行
-" set number
+set number
 " 设置显示命令
 set showcmd
 " 设置编码模式
@@ -18,7 +18,7 @@ syntax enable
 set t_Co=256
 " 历史保留行数
 set history=400
-" colorscheme snazzy 
+colorscheme snazzy 
 " 自动重新读入
 set autoread
 " 设置自动忽略大小写
@@ -71,6 +71,8 @@ Plug 'luochen1990/rainbow'
 Plug 'alvan/vim-closetag'
 Plug 'yianwillis/vimcdoc'
 Plug 'preservim/nerdcommenter'
+Plug 'fatih/vim-go'
+Plug 'nsf/gocode'
 call plug#end()
 
 let g:airline#extensions#tabline#left_sep = ''
